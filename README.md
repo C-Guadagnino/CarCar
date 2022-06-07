@@ -2,8 +2,8 @@
 
 Team:
 
-* Cameron Guadagnino - Services
-* Ariana Kim - Sales
+* Cameron Guadagnino
+* Ariana Kim
 
 ## Design
 
