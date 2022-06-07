@@ -44,7 +44,8 @@ function Nav() {
               </NavLink>
               <div className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                 <NavLink className="dropdown-item" to="/salesperson/new">Create a Sales Person</NavLink>
-                <NavLink className="dropdown-item" to="/salerecords/new">Create a Sales Record</NavLink>
+                <NavLink className="dropdown-item" to="/customers/new">Create a Customer</NavLink>
+                <NavLink className="dropdown-item" to="/salerecords/new">Create a Sale Record</NavLink>
                 <NavLink className="dropdown-item" to="/salerecords">Sales Records List</NavLink>
                 <NavLink className="dropdown-item" to="/salerecords/persalesperson">Sales Person History</NavLink>
               </div>
@@ -59,15 +60,6 @@ function Nav() {
                 <NavLink className="dropdown-item" to="/appointments">Appointments List</NavLink>
                 <NavLink className="dropdown-item" to="/appointments/history">Appointments History</NavLink>
                 <NavLink className="dropdown-item" to="/technicians">Technician List</NavLink>
-              </div>
-            </li>
-
-            <li className="nav-item dropdown">
-              <NavLink className="nav-link dropdown-toggle" to="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Customers
-              </NavLink>
-              <div className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                <NavLink className="dropdown-item" to="/customers/new">Create a Customer</NavLink>
               </div>
             </li>
           </ul>

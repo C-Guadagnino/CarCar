@@ -62,9 +62,7 @@ class ServiceHistory extends React.Component {
                         <th>VIN</th>
                         <th>Customer name</th>
                         <th>Date and Time</th>
-                        <th>Technician</th>
                         <th>Reason</th>
-                        <th>VIP</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -92,11 +90,7 @@ class ServiceHistory extends React.Component {
                                 <td className={finishedStatus}>{service.vin}</td>
                                 <td className={finishedStatus}>{service.customer}</td>
                                 <td className={finishedStatus}>{ newDate.toLocaleString('en-US', {month:'long', day:'numeric', year:'numeric', hour:'numeric', minute:'numeric'})}</td>
-                                <td className={finishedStatus}>{service.technician.name}</td>
                                 <td className={finishedStatus}>{service.reason}</td>
-                                <td className={finishedStatus}>
-                                    {vipStatus}
-                                </td>
                             </tr>
                         )
                     })}

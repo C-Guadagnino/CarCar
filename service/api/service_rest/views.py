@@ -8,7 +8,7 @@ from .models import AutomobileVO, Technician, Appointment
 # Create your views here.
 class AutomobileEncoder(ModelEncoder):
     model = AutomobileVO
-    properties = ["vin", "import_href"]
+    properties = ["vin"]
 
 
 class TechnicianListEncoder(ModelEncoder):
@@ -84,6 +84,7 @@ def api_list_appointments(request):
         )
     else:
         content = json.loads(request.body)
+
         try:
             technician_number = content["technician"]
             technician = Technician.objects.get(tech_id=technician_number)
@@ -93,14 +94,12 @@ def api_list_appointments(request):
                 {"message": "Invalid employee id"},
                 status = 400,
             )
-        
-
         vin_number = content["vin"]
+
         if AutomobileVO.objects.filter(vin=vin_number).exists():
             content["is_vip"] = True
         else:
             content["is_vip"] = False
-            print("Not VIP")
 
         services = Appointment.objects.create(**content)
         return JsonResponse(

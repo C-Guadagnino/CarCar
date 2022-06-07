@@ -21,26 +21,21 @@ import ServiceHistory from './Services/ServiceHistory';
 
 
 function App(props) {
-  // maybe we don't even need this code...
-  // putting it here temporarily in case we run into an error and end up needing it
-  // if (props.salesRecords === undefined) {
-  //   return null;
-  // }
   return (
     <BrowserRouter>
       <Nav />
       <div className="container">
         <Routes>
           <Route path="/" element={<MainPage />} />
-          <Route path="/manufacturers" element={<ManufacturerList manufacturers={props.manufacturers}/>} />
+          <Route path="/manufacturers" element={<ManufacturerList />} />
           <Route path="/manufacturers/new" element={<ManufacturerForm />} />
-          <Route path="/models" element={<VehicleModelList models={props.models}/>} />
+          <Route path="/models" element={<VehicleModelList />} />
           <Route path="/models/new" element={<VehicleModelForm />} />
-          <Route path="/automobiles" element={<AutomobileList automobiles={props.automobiles}/>} />
+          <Route path="/automobiles" element={<AutomobileList />} />
           <Route path="/automobiles/new" element={<AutomobileForm />} />
           <Route path="/salesperson/new" element={<SalesPersonForm />} />
           <Route path="/customers/new" element={<CustomerForm />} />
-          <Route path="/salerecords" element={<SaleRecordList saleRecords={props.saleRecords}/>} />
+          <Route path="/salerecords" element={<SaleRecordList />} />
           <Route path="/salerecords/new" element={<SaleRecordForm />} />
           <Route path="/salerecords/persalesperson" element={<SalesPersonHistory />} />
           <Route path="/technicians/new" element={<TechnicianForm />} />

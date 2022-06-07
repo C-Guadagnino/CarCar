@@ -10,6 +10,7 @@ class ServiceAppointmentForm extends React.Component {
             technician:"",
             technicians: [],
             reason: '',
+            submit: false,
         };
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -39,6 +40,7 @@ class ServiceAppointmentForm extends React.Component {
         data.date_time = data.dateTime
         delete data.dateTime
         delete data.technicians
+        delete data.submit
         console.log(data)
 
         const serviceURL = "http://localhost:8080/api/appointments/";
@@ -60,18 +62,26 @@ class ServiceAppointmentForm extends React.Component {
                 dateTime: '',
                 technician:"",
                 reason: '',
+                submit: true
             };
             this.setState(cleared);
         }
     }
 
     render() {
+      let formClasses = '';
+      let alertClasses = 'alert alert-success d-none mb-0'
+
+      if (this.state.successfulSubmit) {
+        formClasses='d-none';
+        alertClasses='alert alert-success mb-0'
+      }
         return (
             <div className="row">
             <div className="offset-3 col-6">
               <div className="shadow p-4 mt-4">
                 <h1>Create a new Appointment</h1>
-                <form onSubmit={this.handleSubmit} id="create-service-form">
+                <form onSubmit={this.handleSubmit} id="create-service-form" className='{formClasses}'>
                   <div className="form-floating mb-3">
                     <input onChange={this.handleChange} value={this.state.vin} placeholder="Vin" required type="text" id="vin" className="form-control" />
                     <label htmlFor="vin">Vin number</label>
@@ -98,8 +108,11 @@ class ServiceAppointmentForm extends React.Component {
                     <input onChange={this.handleChange} value={this.state.reason} placeholder="Reason" type="text" id="reason" className="form-control" />
                     <label htmlFor="reason">Reason</label>
                   </div>
-                  <button className="btn btn-primary">Create</button>
+                  <button className="btn btn-primary">Create Appointment</button>
                 </form>
+                <div className={alertClasses} id="success-message">
+                  Appointment has been created!
+                </div>
               </div>
             </div>
           </div>
